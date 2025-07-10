@@ -1,0 +1,21 @@
+a{
+    background-color: green;
+    color : white;
+    font-size: 30px;
+}
+a:hover{
+    background-color: red;
+}
+a:visited{
+    background-color: green;
+}
+a:active{
+    background-color: black;
+}
+a:focus{
+
+}
+
+.active{
+    background-color: red;
+}
