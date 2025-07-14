@@ -1,0 +1,133 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.top-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    background-color: #24456b;
+    color: #fff;
+}
+.left-top-header{
+    font-size: 14px;
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    
+    /* background-color: red; */
+}
+.right-top-header{
+    width: 40%;
+    /* background-color: red; */
+}
+.header{
+    width: 100%;
+    height: 600px;
+    background-color: #3D74B6;
+}
+.container{
+    width: 85%;
+    margin: 0 auto;
+}
+.top-header-menu{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+.top-header-menu li a{
+    padding: 0 10px;
+    color: #fff;
+}
+.nav{
+    height: 80px;
+    /* background-color: red; */
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.nav h1{
+    color: #fff;
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+.nav ul li a{
+    padding: 10px 25px;   
+    color: #fff;
+}
+.hero{
+    display: flex;
+    height: 490px;
+    width: 100%;
+    /* background-color: red; */
+}
+.hero-left, .hero-right{
+    width: 50%;
+    height: 490px;
+    /* background-color: green; */
+}
+.hero-right{
+    background-image: url("https://bootstrapmade.com/content/demo/Impact/assets/img/hero-img.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.hero-left h1{
+    color: #fff;
+    margin-top: 100px;
+    font-size: 40px;
+}
+.hero-left p{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: #bebebe;
+}
+.hero-left a{
+    color: #fff;
+    background-color: #488ad6;
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: 2px solid #679cd8;
+    transition: 1s;
+}
+.hero-left a:hover{
+    border: 2px solid #b3c8df;
+
+}
+.items{
+    width: 100%;
+    top: -70px;
+    position: relative;
+    height: 250px;
+}
+.items-box{
+
+    width: 230px;
+    height: 230px;
+    background-color: #3D74B6;
+    box-shadow: 0 0 10px #282828;
+    border-radius: 10px;
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+.items-box:hover{
+    background-color: #488ad6;
+    cursor: pointer;
+}
+.items-box h2{
+    margin-top: 10px;
+}
