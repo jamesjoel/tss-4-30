@@ -1,0 +1,9 @@
+.para > u{
+    background-color: pink;
+}
+.para b u{
+    background-color: red;
+}
+.para + h1{
+    background-color: blue;
+}
