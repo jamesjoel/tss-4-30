@@ -25,7 +25,26 @@
         B. Camel Case       fullName        lastYearSalary
         C. Pascle Case      FullName        LastYearSalary
                    
-            
+        
+
+        2. Data-Types
+
+        Data-Types
+            1. Number               
+            2. Boolean              
+            3. String               
+            4. Array
+            5. Object
+            6. JSON
+            7. undefined
+            8. null/empty
+            9. date
+            10. Symbol
+
+        3. Premitive and non-premitive (refrence datatype)
+        4. De-Structring
+        5. Spread Operator
+        6. Operators
 */
 
 let a = 10;
