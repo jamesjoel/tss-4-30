@@ -12,3 +12,4 @@ let TeacherSports = (req, res)=>{
 }
 
 export {Teacher, TeacherPrimary, TeacherSecondary, TeacherSports}
+

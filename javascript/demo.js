@@ -1,0 +1,1 @@
+import {x} from '../../boot/js/bootstrap.bundle.js'
