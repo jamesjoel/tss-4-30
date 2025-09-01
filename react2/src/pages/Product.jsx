@@ -45,7 +45,8 @@ const Product = () => {
                         </div>
                         :
                         
-                            allPro.map(item => <div className="col-md-3">
+                            allPro.map(item => 
+                            <div className="col-md-3">
                                 <div className='card my-3'>
                                     <div style={{height : "80px"}} className='card-header bg-dark'>
                                         <h6 className='text-light'>{item.title}</h6>
