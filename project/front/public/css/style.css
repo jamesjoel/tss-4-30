@@ -22,6 +22,10 @@ CSS STRUCTURE:
 2. GENERAL TYPOGRAPHY
 
 --------------------------------------------------------------*/
+
+
+
+
 body {
   --heading-font: "Marcellus", Roboto, sans-serif;
   --heading-font-weight: 400;
@@ -239,9 +243,14 @@ a {
 }
 
 /* form control */
+.form-control{
+  color: #000 !important;
+  border-color: #5e5e5e;
+}
+
 .form-control:focus {
-  border-color: #ccc;
-  box-shadow: 0 0 0 0.25rem rgba(200, 200, 200, .25);
+  border-color: #000;
+  box-shadow: 0 0 0 0.25rem rgba(200, 200, 200, .5);
 }
 
 /* dark theme */
