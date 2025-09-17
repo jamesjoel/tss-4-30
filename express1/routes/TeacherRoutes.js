@@ -1,4 +1,5 @@
 import express from 'express';
+// let express = require("express");
 import {Teacher, TeacherPrimary, TeacherSecondary, TeacherSports} from '../controllers/TeacherController.js'
 
 const routes = express.Router();
