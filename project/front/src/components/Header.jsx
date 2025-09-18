@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useRef} from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+  
+
   return (
     <nav className="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
     <div className="container-fluid">
@@ -50,12 +54,22 @@ const Header = () => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/contact">Contact</NavLink>
                 </li>
-                <li className="nav-item">
+                {
+                  !localStorage.getItem("user_access")
+                  ?
+                  <>
+                  <li className="nav-item">
                   <NavLink className="nav-link" to="/login">Login</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/signup">Signup</NavLink>
                 </li>
+                  </>
+                  :
+                  ''
+                }
+                
+
               </ul>
             </div>
           </div>
@@ -64,32 +78,28 @@ const Header = () => {
         <div className="col-3 col-lg-auto">
           <ul className="list-unstyled d-flex m-0">
             
-            <li className="d-none d-lg-block">
-              <NavLink to="/mycart" className="text-uppercase mx-3">Cart <i className='fa fa-shopping-cart'></i> <span className="cart-count">(0)</span>
+            
+            {
+              localStorage.getItem("user_access")
+              ?
+              <li className="d-lg-block dropdown">
+              <a href='#' data-bs-toggle="dropdown" className='dropdown-toggle'>{localStorage.getItem("user_name")}</a>
+              <div className='dropdown-menu'>
+                <NavLink to='/user/myaccount' className='dropdown-item'>My Account</NavLink>
+                <a href='#' className='dropdown-item'>Wish List</a>
+                <a href='#' className='dropdown-item'>Orders</a>
+                <NavLink to='/user/logout' className='dropdown-item'>Logout</NavLink>
+              </div>
+            </li>
+            :
+            ''
+            }
+            <li className="d-lg-block">
+              <NavLink to="/mycart" className="text-uppercase mx-3"><i className='fa fa-shopping-cart'></i> <span className="cart-count">(0)</span>
               </NavLink>
             </li>
-            <li className="d-lg-none">
-              <a href="#" className="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlinkHref="#heart"></use>
-                </svg>
-              </a>
-            </li>
-            <li className="d-lg-none">
-              <a href="#" className="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlinkHref="#cart"></use>
-                </svg>
-              </a>
-            </li>
-            <li className="search-box mx-2">
-              <a href="#search" className="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlinkHref="#search"></use>
-                </svg>
-              </a>
-            </li>
+            
+            
           </ul>
         </div>
 

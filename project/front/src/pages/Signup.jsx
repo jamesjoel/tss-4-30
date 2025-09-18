@@ -9,6 +9,11 @@ import SignupSchema from '../schemas/SignupSchema'
 
 const Signup = () => {
     let navigate = useNavigate();
+     useEffect(()=>{
+            if(localStorage.getItem("user_access")){
+                navigate("/")
+            }
+        },[])
     let [allCity, setAllCity] = useState([]);
     let [isLoading, setIsLoading] = useState(false);
 

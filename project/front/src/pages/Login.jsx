@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Style.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import LoginSchema from '../schemas/LoginSchema'
 import {API_URL} from '../config/API'
@@ -8,6 +8,14 @@ import axios from 'axios'
 import { useState } from 'react'
 
 const Login = () => {
+    let navigate = useNavigate();
+    useEffect(()=>{
+        if(localStorage.getItem("user_access")){
+            navigate("/")
+        }
+    },[])
+
+
 
     let [errMsg, setErrMsg] = useState("");
     let LoginFrm = useFormik({
@@ -21,9 +29,15 @@ const Login = () => {
             axios
             .post(`${API_URL}/userauth`, formData)
             .then(response=>{
+
                 if(response.data.success==true)
                 {
-                    console.log("Email and Password CORRECT")
+                    let token = response.data.token;
+                    let name = response.data.name;
+                    localStorage.setItem("user_access", token);
+                    localStorage.setItem("user_name", name);
+                    navigate("/");
+
                 }
                 else{
                     if(response.data.errType==1){

@@ -16,6 +16,9 @@ import Comp5 from './pages/Comp5';
 import Comp6 from './pages/Comp6';
 import Comp7 from './pages/Comp7';
 import Comp8 from './pages/Comp8';
+import More from './pages/More';
+import Info from './pages/Info';
+import AboutBox from './pages/AboutBox';
 
 let App = ()=>{
     return(
@@ -24,7 +27,16 @@ let App = ()=>{
         <div className="" style={{minHeight : "700px"}}>
             <Routes>
                 <Route path='/' element={<Home />}  />
-                <Route path='/about' element={<About />} />
+
+                <Route path='/' element={<AboutBox />}>
+
+                    <Route path='about' element={<About />} />
+                    
+                    <Route path='about/more' element={<More />} />
+                    <Route path='about/info' element={<Info />} />
+
+                </Route>
+
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/help' element={<Help />} />
                 <Route path='/comp1' element={<Comp1 />} />

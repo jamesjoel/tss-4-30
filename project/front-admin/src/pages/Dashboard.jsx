@@ -1,106 +1,7 @@
 import React from 'react'
-
 const Dashboard = () => {
   return (
      <>
-    <div className="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
-
-    
-    <div className="app-topstrip bg-dark py-6 px-3 w-100 d-lg-flex align-items-center justify-content-between">
-      <div className="d-flex align-items-center justify-content-center gap-5 mb-2 mb-lg-0">
-        <a className="d-flex justify-content-center" href="#">
-          {/* <img src="/images/logos/logo-wrappixel.svg" alt="" width="150"/> */}
-          <h2 className='text-light'>Administrator</h2>
-        </a>
-
-        
-      </div>
-
-      <div className="d-lg-flex align-items-center gap-2">
-        
-      </div>
-
-    </div>
-    
-    <aside className="left-sidebar">
-    
-      <div>
-        <div className="brand-logo d-flex align-items-center justify-content-between">
-          <h3>Admin</h3>
-          <div className="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i className="ti ti-x fs-6"></i>
-          </div>
-        </div>
-        
-        <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
-          <ul id="sidebarnav">
-            
-            <li className="sidebar-item">
-              <a className="sidebar-link" href="./index.html" aria-expanded="false">
-                <i className="ti ti-atom"></i>
-                {/* <i class="ti ti-adjustments-cog"></i> */}
-                <span className="hide-menu">Dashboard</span>
-              </a>
-            </li>
-        
-            
-            <li className="sidebar-item">
-              <a className="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
-                <div className="d-flex align-items-center gap-3">
-                  <span className="d-flex">
-                    <i className="ti ti-layout-grid"></i>
-                  </span>
-                  <span className="hide-menu">Front Pages</span>
-                </div>
-                
-              </a>
-              <ul aria-expanded="false" className="collapse first-level">
-                <li className="sidebar-item">
-                  <a className="sidebar-link justify-content-between"  
-                    href="#">
-                    <div className="d-flex align-items-center gap-3">
-                      <div className="round-16 d-flex align-items-center justify-content-center">
-                        <i className="ti ti-circle"></i>
-                      </div>
-                      <span className="hide-menu">Homepage</span>
-                    </div>
-                    
-                  </a>
-                </li>
-               
-              </ul>
-            </li>
-
-            
-          </ul>
-        </nav>
-        
-      </div>
-      
-    </aside>
-    
-    <div className="body-wrapper">
-    
-      <header className="app-header">
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <ul className="navbar-nav">
-            <li className="nav-item d-block d-xl-none">
-              <a className="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
-                <i className="ti ti-menu-2"></i>
-              </a>
-            </li>
-            
-          </ul>
-         
-        </nav>
-      </header>
-      
-      <div className="body-wrapper-inner">
-        <div className="container-fluid">
-      
-          <div className="row">
-            
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
@@ -241,16 +142,6 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            
-          </div>
-          <div className="py-6 px-6 text-center">
-            <p className="mb-0 fs-4">Design and Developed by <a href="#"
-                className="pe-1 text-primary text-decoration-underline">Wrappixel.com</a> Distributed by <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
     </>
   )
 }

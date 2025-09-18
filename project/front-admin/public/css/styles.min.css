@@ -5383,6 +5383,12 @@ textarea.form-control-lg {
   text-decoration: none;
   background-color: var(--bs-list-group-action-hover-bg);
 }
+
+.textbox-bg{
+  background-color: #ededed;
+  color : #000;
+}
+
 .list-group-item-action:active {
   color: var(--bs-list-group-action-active-color);
   background-color: var(--bs-list-group-action-active-bg);
@@ -7238,7 +7244,8 @@ textarea.form-control-lg {
 
 .text-bg-light {
   color: #000 !important;
-  background-color: RGBA(var(--bs-light-rgb), var(--bs-bg-opacity, 1)) !important;
+  background-color: #ccc;
+  /* background-color: RGBA(var(--bs-light-rgb), var(--bs-bg-opacity, 1)) !important; */
 }
 
 .text-bg-dark {
@@ -15906,6 +15913,7 @@ body {
 }
 .body-wrapper .body-wrapper-inner {
   min-height: calc(100vh - 110px);
+  background-color: #fff;
 }
 .body-wrapper .container-fluid, .body-wrapper .container-sm, .body-wrapper .container-md, .body-wrapper .container-lg, .body-wrapper .container-xl, .body-wrapper .container-xxl {
   max-width: 1300px;
