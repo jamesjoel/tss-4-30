@@ -42,4 +42,10 @@ else{
 
 }
 
-export {SaveUser, DeleteAll, Profile}
+
+let GetAllUser = async(req, res)=>{
+    let result = await User.find({}, "-password");
+    res.send({success:true, result})
+}
+
+export {SaveUser, DeleteAll, Profile, GetAllUser}

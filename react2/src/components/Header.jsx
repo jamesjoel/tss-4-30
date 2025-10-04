@@ -1,8 +1,16 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-const Header = () => {
+const Header = ({children}) => {
   return (
+    <>
+    {
+      children
+      ?
+      <p>{children}</p>
+      :
+      ''
+    }
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
   <div className="container">
     <a className="navbar-brand" href="#">Logo</a>
@@ -61,6 +69,7 @@ const Header = () => {
     </div>
   </div>
 </nav>
+</>
   )
 }
 

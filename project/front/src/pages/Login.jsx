@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './Style.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, Navigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import LoginSchema from '../schemas/LoginSchema'
 import {API_URL} from '../config/API'
@@ -36,7 +36,17 @@ const Login = () => {
                     let name = response.data.name;
                     localStorage.setItem("user_access", token);
                     localStorage.setItem("user_name", name);
-                    navigate("/");
+                    if(localStorage.getItem("checkloggedin")){
+                        let url = localStorage.getItem("checkloggedin");
+                        // console.log(url)
+                        // return (<Navigate to={url} replace={true} />)
+                        localStorage.removeItem("checkloggedin")
+                        navigate(url);
+                        // window.location.href = url;
+                    }else{
+
+                        navigate("/");
+                    }
 
                 }
                 else{

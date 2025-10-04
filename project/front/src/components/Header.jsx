@@ -1,9 +1,22 @@
 import React, {useRef} from 'react'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import {API_URL} from '../config/API'
+import { useEffect } from 'react'
+import CatetegoryDropDown from '../ui/CatetegoryDropDown'
 
 const Header = () => {
 
+  let [cateData, setCateData] = useState([]);
+
+  useEffect(()=>{
+    axios
+    .get(`${API_URL}/category`)
+    .then(response=>{
+      setCateData(response.data.result);
+    })
+  },[])
   
 
   return (
@@ -45,7 +58,10 @@ const Header = () => {
                     aria-haspopup="true" aria-expanded="false">Shop</a>
                   <ul className="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                     <li>
-                      <a href="index.html" className="dropdown-item item-anchor">Shop Sidebar </a>
+                      {
+                        cateData.map(item=><CatetegoryDropDown key={item._id} info={item} />)
+                      }
+                      {/* <a href="index.html" className="dropdown-item item-anchor">Shop Sidebar </a> */}
                     </li>
                     
                   </ul>

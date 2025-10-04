@@ -31,7 +31,7 @@ const NavBar = () => {
     </a>
     <ul className="list-unstyled ps-0">
       <li className="mb-1 nav-item">
-        <NavLink className='btn align-items-center rounded'  to='/dashobard'> 
+        <NavLink className='btn align-items-center rounded'  to='/'> 
           <i class="fa fa-th-large pe-2" aria-hidden="true"></i> Dashboard
         </NavLink>
         
@@ -68,28 +68,9 @@ const NavBar = () => {
         </button>
         <div className="collapse" id="home-collapse2" >
           <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" className="link-dark rounded">Overview</a></li>
-            <li><a href="#" className="link-dark rounded">Updates</a></li>
-            <li><a href="#" className="link-dark rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <li className="mb-1">
-        <button className="btn align-items-center rounded collapsed " style={{width : "100%"}} data-bs-toggle="collapse" data-bs-target="#home-collapse3" aria-expanded="false">
-          <div style={{display : "flex", justifyContent : "space-between", alignItems : "center", width : "100%"}}>
-            <span>
-            <i class="fa fa-users pe-2" aria-hidden="true"></i> 
-            Users 
-             </span>
-            <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </div>
+            <li><NavLink to="/subcategory/add" className="link-dark rounded">Add New</NavLink></li>
+            <li><NavLink to="/subcategory" className="link-dark rounded">List</NavLink></li>
             
-        </button>
-        <div className="collapse" id="home-collapse3" >
-          <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" className="link-dark rounded">Overview</a></li>
-            <li><a href="#" className="link-dark rounded">Updates</a></li>
-            <li><a href="#" className="link-dark rounded">Reports</a></li>
           </ul>
         </div>
       </li>
@@ -106,12 +87,17 @@ const NavBar = () => {
         </button>
         <div className="collapse" id="home-collapse5" >
           <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" className="link-dark rounded">Overview</a></li>
-            <li><a href="#" className="link-dark rounded">Updates</a></li>
-            <li><a href="#" className="link-dark rounded">Reports</a></li>
+            <li><NavLink to="/products/add" className="link-dark rounded">Add New</NavLink></li>
+            <li><NavLink to="/products" className="link-dark rounded">List</NavLink></li>
+            
           </ul>
         </div>
       </li>
+      <li className="mb-0 nav-item">
+        <NavLink className='btn align-items-center rounded'  to='/users'> <i class="fa fa-users pe-2" aria-hidden="true"></i>  Users</NavLink>
+        
+      </li>
+      
       <li className="mb-1">
         <button className="btn align-items-center rounded collapsed " style={{width : "100%"}} data-bs-toggle="collapse" data-bs-target="#home-collapse4" aria-expanded="false">
           <div style={{display : "flex", justifyContent : "space-between", alignItems : "center", width : "100%"}}>
