@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import {NavLink, useParams, useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import { API_URL } from '../config/API'
+import { API_URL, API_PATH } from '../config/API'
 import { useState } from 'react'
 const Detail = () => {
 
@@ -58,7 +58,7 @@ const Detail = () => {
     <div className="container my-5">
       <div className="row">
         <div className="col-md-5">
-          <img src='/images/cat-item2.jpg' />
+          <img src={`${API_PATH}/product_images/${pro.image}`} className='img-thumbnail' />
           <br />
           <button onClick={checkUserLoggedIn} className='btn m-3 btn-lg btn-success'>Buy Now</button>
           <NavLink to='' className='btn m-3 btn-lg btn-primary'>Add To Cart</NavLink>

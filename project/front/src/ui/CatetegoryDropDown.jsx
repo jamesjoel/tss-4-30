@@ -1,8 +1,9 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 const CatetegoryDropDown = ({info}) => {
   return (
-    <a href="index.html" className="dropdown-item item-anchor">{info.title}</a>
+    <NavLink to="/shop" className="dropdown-item item-anchor">{info.title}</NavLink>
   )
 }
 

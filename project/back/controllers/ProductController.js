@@ -1,6 +1,27 @@
 import Product from "../models/Product.js";
+import Path from 'path'
+import { UniqueString } from 'unique-string-generator'
 
 let SaveProduct = async(req, res)=>{
+    
+    let uniqueName = UniqueString();
+    let image = req.files.image;
+    let imagename = image.name; // 1.hello.test.10.jpg
+
+    
+    let extArr = imagename.split(".");
+    let ext = extArr[extArr.length-1];
+    let newname = uniqueName+"."+ext;
+
+    req.body.image =  newname// ODgyXzE2Nzk1MDQyMDcxNDZfNDkx.jpg
+
+    // Path.resolve()
+    let upload_path = Path.resolve()+"/assets/product_images/"+newname;
+
+    image.mv(upload_path, (err)=>{
+        console.log("***********");
+    });
+
     let result = await Product.create(req.body);
     res.send({success:true, result});
 }
@@ -28,3 +49,4 @@ let DeleteAll = async(req, res)=>{
 }
 
 export {SaveProduct, DeleteAll, UpdateProduct, DeleteProduct, GetAllProduct, GetByIdProduct}
+

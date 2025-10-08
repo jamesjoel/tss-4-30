@@ -24,6 +24,8 @@ const ListCategory = () => {
             <tr>
               <th>S.No.</th>
               <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +33,8 @@ const ListCategory = () => {
               allCate.map((item, index)=><tr key={index}>
                 <td>{index+1}</td>
                 <td>{item.title}</td>
+                <td><button className='btn btn-sm btn-info'><i className='fa fa-pencil'></i></button></td>
+                <td><button className='btn btn-sm btn-danger'><i className='fa fa-trash'></i></button></td>
               </tr>)
             }
           </tbody>

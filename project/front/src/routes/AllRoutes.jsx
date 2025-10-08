@@ -12,7 +12,10 @@ import Logout from '../pages/user/Logout'
 import Detail from '../pages/Detail'
 import HeroBanner from '../components/HeroBanner'
 import Buynow from '../pages/user/Buynow'
+import Shop from '../pages/Shop'
 const AllRoutes = () => {
+  // :5173/shop/bags
+  // :5173/shop/bags/hand-bags
   return (
     <Routes>
 
@@ -22,6 +25,7 @@ const AllRoutes = () => {
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<Signup />} />
         </Route>
+        <Route path='shop' element={<Shop />} />
 
 
         <Route path='contact' element={<Contact />} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import { API_PATH } from '../config/API'
 
 const ProductBox = ({item}) => {
 
@@ -18,7 +19,7 @@ const ProductBox = ({item}) => {
             <div className="product-item image-zoom-effect link-effect">
               <div className="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-1.jpg" alt="categories" className="product-image img-fluid" />
+                  <img src={`${API_PATH}/product_images/${item.image}`} alt="categories" className="product-image img-fluid" />
                 </a>
                 <a href="index.html" className="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
