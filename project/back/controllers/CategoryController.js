@@ -1,4 +1,25 @@
 import Cate from "../models/Category.js";
+import SubCate from '../models/SubCategory.js'
+
+
+let GetAllCategoryWithSubCate = async(req, res)=>{
+    let result = await Cate.find();
+    let newresult = await Promise.all(
+        result.map(async(item)=>{
+            let arr = await SubCate.find({cate_id : item._id});
+            // result.data = arr;
+            return { category : item, subcate : arr};
+        })
+    )
+    /*
+    let newresult = result.map(async(item)=>{
+        let arr = await SubCate.find({cate_id : item._id});
+        return arr;
+    })
+
+    */
+    res.send(newresult);
+}
 
 let SaveCategory = async(req, res)=>{
     let result = await Cate.create(req.body);
@@ -27,4 +48,4 @@ let DeleteAll = async(req, res)=>{
     res.send("data deleted")
 }
 
-export {SaveCategory, DeleteAll, UpdateCategory, DeleteCategory, GetAllCategory, GetByIdCategory}
+export {SaveCategory, DeleteAll, GetAllCategoryWithSubCate, UpdateCategory, DeleteCategory, GetAllCategory, GetByIdCategory}

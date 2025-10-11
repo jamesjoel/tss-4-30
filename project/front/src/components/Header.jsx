@@ -5,6 +5,7 @@ import axios from 'axios'
 import {API_URL} from '../config/API'
 import { useEffect } from 'react'
 import CatetegoryDropDown from '../ui/CatetegoryDropDown'
+import CategoryDropDown2 from '../ui/CategoryDropDown2'
 
 const Header = () => {
 
@@ -47,24 +48,18 @@ const Header = () => {
                 aria-label="Close"></button>
             </div>
 
+            
+
             <div className="offcanvas-body">
+              
               <ul className="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/">Home</NavLink>
                   
                 </li>
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Shop</a>
-                  <ul className="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
-                    <li>
-                      {
-                        cateData.map(item=><CatetegoryDropDown key={item._id} info={item} />)
-                      }
-                      {/* <a href="index.html" className="dropdown-item item-anchor">Shop Sidebar </a> */}
-                    </li>
-                    
-                  </ul>
+                <li className="nav-item">
+                  <CategoryDropDown2 />
+                  
                 </li>
                
                 <li className="nav-item">

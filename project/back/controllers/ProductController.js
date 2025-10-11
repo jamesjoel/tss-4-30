@@ -1,4 +1,6 @@
 import Product from "../models/Product.js";
+import Category from '../models/Category.js'
+import SubCate from '../models/SubCategory.js'
 import Path from 'path'
 import { UniqueString } from 'unique-string-generator'
 
@@ -42,11 +44,31 @@ let DeleteProduct = async(req, res)=>{
     let result = await Product.deleteMany({_id : req.params.id});
     res.send({success:true, result});
 }
-
 let DeleteAll = async(req, res)=>{
     await Product.deleteMany();
     res.send("data deleted")
 }
 
-export {SaveProduct, DeleteAll, UpdateProduct, DeleteProduct, GetAllProduct, GetByIdProduct}
+let GetAllProCateSubCate = async(req, res)=>{
+    
+    let catename = req.params.cate; // bags
+    let cateresult = await Category.find({title : catename});
+    let cateid = cateresult[0]._id;
+
+    if(req.params.subcate){
+        let subcatename = req.params.subcate;
+        let subcateresult = await SubCate.find({title : subcatename});
+        let subcateid = subcateresult[0]._id;
+
+        let result = await Product.find({$and : [{cate_id : cateid}, {sub_cate_id : subcateid}]});
+        res.send({success:true, result})
+        
+    }else{
+        let result = await Product.find({cate_id : cateid});
+        res.send({success:true, result})
+    }
+}
+
+
+export {SaveProduct, DeleteAll, GetAllProCateSubCate, UpdateProduct, DeleteProduct, GetAllProduct, GetByIdProduct}
 

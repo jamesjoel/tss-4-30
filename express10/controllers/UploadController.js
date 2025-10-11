@@ -9,9 +9,23 @@ let Upload = async(req, res)=>{
     let file = req.files.hello;
     let name = file.name;
     let filepath = path.resolve()+"/assets/"+name;
-    file.mv(filepath, (err)=>{
-        console.log("FILE UPLOADED")
-    });
+    // file.mv(filepath, (err)=>{
+    //     console.log("FILE UPLOADED")
+    // });
+    file.mv(filepath);
+    console.log("file upload");
 }
 
 export {Upload}
+
+/*
+    let file = req.files.image;
+    try{
+        await file.mv(path)
+    }catch(err){
+    
+    }
+
+
+
+*/

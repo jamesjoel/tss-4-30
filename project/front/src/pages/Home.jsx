@@ -14,12 +14,14 @@ const Home = () => {
   let [allPro, setAllPro] = useState([]);
 
   useEffect(()=>{
-    axios
-    .get(`${API_URL}/product`)
-    .then(response=>{
-      setAllPro(response.data.result);
-    })
+   GetAllProduct(); 
   },[])
+
+  let GetAllProduct = async()=>{
+   let response = await axios.get(`${API_URL}/product`)
+   setAllPro(response.data.result);
+    
+  }
 
   return (
     <>

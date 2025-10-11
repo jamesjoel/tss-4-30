@@ -1,10 +1,12 @@
 import express from 'express';
 import IsAdminLoggedIn from '../util/IsAdminLoggedIn.js';
-import {SaveCategory, GetAllCategory, GetByIdCategory, UpdateCategory, DeleteCategory, DeleteAll} from '../controllers/CategoryController.js'
+import {SaveCategory, GetAllCategory, GetAllCategoryWithSubCate, GetByIdCategory, UpdateCategory, DeleteCategory, DeleteAll} from '../controllers/CategoryController.js'
 
 const routes = express.Router();
 
 routes.get("/", GetAllCategory)
+routes.get("/getallcategorywithsubcate", GetAllCategoryWithSubCate)
+
 routes.get("/deleteall", DeleteAll)
 routes.get("/:id", GetByIdCategory)
 

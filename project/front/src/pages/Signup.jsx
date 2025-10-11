@@ -29,27 +29,31 @@ const Signup = () => {
             gender : "",
             contact : ""
         },
-        onSubmit : (formData)=>{ 
+        onSubmit : async(formData)=>{ 
            setIsLoading(true); 
-           axios
-           .post(`${API_URL}/user`, formData)
-           .then(response=>{
-            setIsLoading(false);
-            navigate("/login");
-                // console.log(response.data);
-           })
+        //    axios
+        //    .post(`${API_URL}/user`, formData)
+        //    .then(response=>{
+        //     setIsLoading(false);
+        //     navigate("/login");
+        //         // console.log(response.data);
+        //    })
+        let responose = await axios.post(`${API_URL}/user`, formData);
+        setIsLoading(false);
+        navigate("/login");
         }
     })
 
     useEffect(()=>{
-        axios
-        .get(`${API_URL}/city`)
-        .then(response=>{
-            // console.log(response.data);
-            setAllCity(response.data);
-        })
+        GetAllCity()
 
     },[])
+
+
+    let GetAllCity = async()=>{
+        let response =await axios.get(`${API_URL}/city`);
+        setAllCity(response.data);
+    }
 
 
   return (
