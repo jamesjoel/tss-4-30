@@ -21,6 +21,7 @@ const AllRoutes = () => {
           <Route path='/users' element={<ListUsers />} />
           <Route path='/category' element={<ListCategory />} />
           <Route path='/category/add' element={<AddCategory />} />
+          <Route path='/category/edit/:id' element={<AddCategory />} />
           <Route path='/subcategory' element={<ListSubCategory />} />
           <Route path='/subcategory/add' element={<AddSubCategory />} />
           <Route path='/products' element={<ListProducts />} />

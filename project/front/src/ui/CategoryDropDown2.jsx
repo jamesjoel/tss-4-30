@@ -23,6 +23,8 @@ const CategoryDropDown2 = () => {
         
     }
 
+    
+
     return (
         <div className="dropdown">
             <button className="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -35,9 +37,12 @@ const CategoryDropDown2 = () => {
                         return (
                             <li>
                                 <NavLink className="dropdown-item" to={`/shop/${SEOFrndlyURL(item.category.title)}`}>
-                                    {item.category.title} &raquo;
+                                    {item.category.title} {item.subcate.length > 0 ? <span>&raquo;</span> : ''} 
                                 </NavLink>
-                                <ul className="dropdown-menu dropdown-submenu">
+                                {
+                                    item.subcate.length > 0
+                                    ?
+                                    <ul className="dropdown-menu dropdown-submenu">
                                     {
                                         item.subcate.map(item2=>{
                                             return(
@@ -48,6 +53,9 @@ const CategoryDropDown2 = () => {
                                         })
                                     }
                                 </ul>
+                                :
+                                ''
+                                }
                             </li>
                         )
                     })
@@ -59,3 +67,10 @@ const CategoryDropDown2 = () => {
 }
 
 export default CategoryDropDown2
+
+/*
+
+JSX  
+
+
+*/

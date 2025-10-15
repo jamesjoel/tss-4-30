@@ -1,4 +1,5 @@
 import SubCate from "../models/SubCategory.js";
+import Product from '../models/Product.js'
 
 let SaveSubCategory = async(req, res)=>{
     let result = await SubCate.create(req.body);
@@ -19,6 +20,7 @@ let UpdateSubCategory = async(req, res)=>{
 }
 let DeleteSubCategory = async(req, res)=>{
     let result = await SubCate.deleteMany({_id : req.params.id});
+    let result2 = await Product.deleteMany({sub_cate_id : req.params.id});
     res.send({success:true, result});
 }
 

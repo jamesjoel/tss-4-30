@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {API_URL} from '../../config/API'
+import DeleteBox from '../../ui/DeleteBox'
 const ListSubCategory = () => {
 
   let [allSubCate, setAllSubCate] = useState([])
+  let [subCate, setSubCate] = useState({});
+  let [showDelBox, setShowDelBox] = useState(false);
 
   useEffect(()=>{
     axios
@@ -13,18 +16,45 @@ const ListSubCategory = () => {
     })
   },[])
 
+  let askDelete = (obj)=>{
+    setSubCate(obj);
+    setShowDelBox(true);
+  }
+
+  let confirmDelete = async()=>{
+    let response = await axios.delete(`${API_URL}/subcategory/${subCate._id}`, { headers : {Authorization : localStorage.getItem("admin_access")}})
+    setAllSubCate(prev=>prev.filter(item=>item._id != subCate._id));
+    setShowDelBox(false);
+  }
+
+  let deleteBoxKoBundKaro = ()=>{
+    setShowDelBox(false)
+  }
 
   return (
+    <>
+      <DeleteBox 
+        lable={"Sub-Category"}
+        name={subCate.title}
+        confDel={confirmDelete}
+        isClose={deleteBoxKoBundKaro}
+        showDelBox={showDelBox}
+      />
      <div className='container'>
       <div className="row">
         <h5>List All Sub-Categories</h5>
        
-         <table className='table my-3 table-light table-bordered table-hover table-striped'>
+         {
+          allSubCate.length
+          ?
+          <table className='table my-3 table-light table-bordered table-hover table-striped'>
           <thead>
             <tr>
               <th>S.No.</th>
               <th>Category Title</th>
               <th>Sub-Category Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -33,13 +63,20 @@ const ListSubCategory = () => {
                 <td>{index+1}</td>
                 <td>{item.cate_id.title}</td>
                 <td>{item.title}</td>
+                <td><button className='btn btn-info btn-sm'><i className='fa fa-pencil'></i></button></td>
+                <td><button onClick={()=>askDelete(item)} className='btn btn-danger btn-sm'><i className='fa fa-trash'></i></button></td>
+              
               </tr>)
             }
           </tbody>
         </table>
+        :
+        <div className='alert alert-danger'>No Sub-Category Found</div>
+         }
         
       </div>
     </div>
+  </>
   )
 }
 

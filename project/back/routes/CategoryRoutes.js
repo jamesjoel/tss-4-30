@@ -5,11 +5,11 @@ import {SaveCategory, GetAllCategory, GetAllCategoryWithSubCate, GetByIdCategory
 const routes = express.Router();
 
 routes.get("/", GetAllCategory)
+
 routes.get("/getallcategorywithsubcate", GetAllCategoryWithSubCate)
-
 routes.get("/deleteall", DeleteAll)
-routes.get("/:id", GetByIdCategory)
 
+routes.get("/:id", GetByIdCategory)
 routes.post("/", IsAdminLoggedIn, SaveCategory)
 routes.put("/:id", IsAdminLoggedIn, UpdateCategory)
 routes.delete("/:id", IsAdminLoggedIn, DeleteCategory)
